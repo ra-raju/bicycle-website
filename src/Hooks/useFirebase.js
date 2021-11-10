@@ -32,6 +32,7 @@ const useFirebase = () => {
           displayName: name,
         };
         setUser(newUser);
+        saveUserToDB(res.user.email, name);
         history.push('/');
         console.log(newUser);
       })
@@ -122,6 +123,20 @@ const useFirebase = () => {
       observer();
     };
   }, []);
+
+  // save user in database
+  const saveUserToDB = (email, displayName) => {
+    const user = { email, displayName };
+    console.log(user);
+
+    fetch('http://localhost:8000/user', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(user),
+    }).then((res) => res.json());
+  };
 
   return {
     signUpWithPassword,
