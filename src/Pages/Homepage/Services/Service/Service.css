@@ -1,0 +1,60 @@
+.card {
+  width: 300px;
+  min-height: 400px;
+  margin: 0 auto;
+  background-color: darkturquoise;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+.card:hover {
+  box-shadow: 5px 5px 10px #888888, -5px -5px 10px #888888;
+}
+
+.card-image {
+  height: 200px;
+  width: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.card-image img {
+  height: 100%;
+  width: 100%;
+}
+
+.card-content {
+  margin-top: 5px;
+  width: 300px;
+  overflow-wrap: break-word;
+}
+
+.card-title {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.card-action {
+  width: 300px;
+  background-color: gray;
+}
+
+.card-action Button {
+  width: 100%;
+}
+
+.card-price {
+  font-weight: 600;
+}
+
+.dollar-icon {
+  color: blue;
+}
