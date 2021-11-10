@@ -37,7 +37,6 @@ export default function Navigation() {
                 textDecoration: 'none',
                 color: 'white',
                 marginRight: '5px',
-                fontSize: '20px',
               }}
             >
               Products
@@ -46,14 +45,33 @@ export default function Navigation() {
 
           {user.email ? (
             <Box>
+              <NavLink
+                to="/dashboard"
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  marginRight: '20px',
+                }}
+              >
+                Dashboard
+              </NavLink>
               <span>{user.displayName}</span>
-              <Button color="inherit" onClick={logOut}>
+              <Button color="inherit" onClick={logOut} sx={{ mr: 3 }}>
                 Logout
               </Button>
             </Box>
           ) : (
-            <Button color="inherit">
-              <Link to="/login">Login</Link>
+            <Button color="inherit" sx={{ mr: 2 }}>
+              <Link
+                to="/login"
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  marginRight: '5px',
+                }}
+              >
+                Login
+              </Link>
             </Button>
           )}
         </Toolbar>
