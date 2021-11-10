@@ -25,20 +25,24 @@ export default function Navigation() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Runner Cycle
+            <Link to="/" style={{ textDecoration: 'none', color: 'white' }}>
+              Runner Cycle
+            </Link>
           </Typography>
 
-          <NavLink
-            to="/products"
-            style={{
-              textDecoration: 'none',
-              color: 'white',
-              // marginRight: '5px',
-              marginLeft: 'auto',
-            }}
-          >
-            Products
-          </NavLink>
+          <Box sx={{ mx: 5 }}>
+            <NavLink
+              to="/products"
+              style={{
+                textDecoration: 'none',
+                color: 'white',
+                marginRight: '5px',
+                fontSize: '20px',
+              }}
+            >
+              Products
+            </NavLink>
+          </Box>
 
           {user.email ? (
             <Box>

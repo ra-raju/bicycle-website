@@ -13,7 +13,8 @@ import useAuth from '../../../Hooks/useAuth';
 import login from '../../../images/login.jpg';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
 
-const Login = () => {
+const Login = (props) => {
+  console.log(props);
   const { signInWithPassword, loading, signInWithGoogle } = useAuth();
   const history = useHistory();
   const location = useLocation();

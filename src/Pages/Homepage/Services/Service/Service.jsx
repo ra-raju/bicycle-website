@@ -2,11 +2,15 @@ import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import React from 'react';
+import OrderModal from '../OrderModal/OrderModal';
 import './Service.css';
 
 const Service = (props) => {
-  console.log(props.service);
   const { img, title, description, rating, price } = props.service;
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   return (
     <div>
@@ -32,9 +36,17 @@ const Service = (props) => {
           </Box>
         </div>
         <div className="card-action">
-          <Button variant="contained">Buy Now</Button>
+          <Button variant="contained" onClick={handleOpen}>
+            Buy Now
+          </Button>
         </div>
       </div>
+
+      <OrderModal
+        open={open}
+        handleClose={handleClose}
+        service={props.service}
+      />
     </div>
   );
 };

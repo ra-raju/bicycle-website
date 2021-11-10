@@ -2,8 +2,8 @@ import { Container, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
+import Service from '../../Homepage/Services/Service/Service';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
-import Product from '../Product/Product';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -31,9 +31,9 @@ const Products = () => {
             spacing={{ xs: 2, md: 3 }}
             columns={{ xs: 4, sm: 8, md: 12 }}
           >
-            {products.map((product) => (
-              <Grid item xs={4} sm={4} md={4} key={product._id}>
-                <Product product={product} />
+            {products.map((service) => (
+              <Grid item xs={4} sm={4} md={4} key={service._id}>
+                <Service service={service} />
               </Grid>
             ))}
           </Grid>

@@ -20,6 +20,7 @@ function App() {
             <PrivateRoute path="/products">
               <Products />
             </PrivateRoute>
+
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
           </Switch>
