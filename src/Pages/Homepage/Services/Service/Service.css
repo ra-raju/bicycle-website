@@ -9,6 +9,7 @@
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
+  text-align: center;
 }
 
 .card:hover {
