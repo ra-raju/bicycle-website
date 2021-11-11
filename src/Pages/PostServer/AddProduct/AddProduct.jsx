@@ -1,5 +1,5 @@
 import CloseIcon from '@mui/icons-material/Close';
-import { Alert, Button, TextField, Typography } from '@mui/material';
+import { Alert, Button, TextField } from '@mui/material';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -32,11 +32,8 @@ const AddProduct = () => {
       .catch((err) => console.log(err.message));
   };
   return (
-    <div>
-      <Typography variant="h3" gutterBottom component="div">
-        Add Product
-      </Typography>
-      <hr />
+    <div className="dashboard">
+      <h1>Add Product</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box>

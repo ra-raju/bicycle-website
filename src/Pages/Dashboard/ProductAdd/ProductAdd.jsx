@@ -1,9 +1,10 @@
 import React from 'react';
+import AddProduct from '../../PostServer/AddProduct/AddProduct';
 
 const ProductAdd = () => {
   return (
     <div>
-      <h1>Add your product</h1>
+      <AddProduct />
     </div>
   );
 };
