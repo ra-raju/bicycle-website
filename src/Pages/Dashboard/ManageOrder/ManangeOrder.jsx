@@ -100,18 +100,23 @@ const ManangeOrder = () => {
       )}
 
       <TableContainer component={Paper}>
-        <Table
-          sx={{ minWidth: 650, overflowX: 'scroll' }}
-          aria-label="simple table"
-        >
+        <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Email</TableCell>
-              <TableCell>Products</TableCell>
-              <TableCell align="right">Quantity</TableCell>
-              <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Email</TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Products</TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Quantity
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Price
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Status
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="center">
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

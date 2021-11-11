@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 const AddProduct = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [success, setSuccess] = useState(false);
   const [open, setOpen] = React.useState(true);
 
@@ -27,6 +27,7 @@ const AddProduct = () => {
         if (data.insertedId) {
           setSuccess(true);
           setOpen(true);
+          reset();
         }
       })
       .catch((err) => console.log(err.message));

@@ -44,17 +44,25 @@ const MyOrders = () => {
 
   return (
     <div>
-      <h1>Manage Orders}</h1>
+      <h1>Manage Orders</h1>
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Product Name</TableCell>
-              <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Quantity</TableCell>
-              <TableCell align="right">Status</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Product Name</TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Price
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Quantity
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Status
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="right">
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

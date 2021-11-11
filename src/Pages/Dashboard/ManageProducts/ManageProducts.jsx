@@ -40,6 +40,7 @@ const ManageProducts = () => {
         .catch((err) => console.log(err.meaaage));
     }
   };
+
   return (
     <div>
       <h1>Manage Products</h1>
@@ -48,9 +49,13 @@ const ManageProducts = () => {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Image</TableCell>
-              <TableCell align="right">Title</TableCell>
-              <TableCell align="right">Action</TableCell>
+              <TableCell sx={{ fontWeight: 700 }}>Image</TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="center">
+                Title
+              </TableCell>
+              <TableCell sx={{ fontWeight: 700 }} align="center">
+                Action
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -63,7 +68,7 @@ const ManageProducts = () => {
                   <img
                     src={row.img}
                     alt=""
-                    style={{ width: '200px', height: '150px' }}
+                    style={{ width: '300px', height: '150px' }}
                   />
                 </TableCell>
                 <TableCell align="right">{row.title}</TableCell>
