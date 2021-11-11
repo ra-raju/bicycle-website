@@ -25,7 +25,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
-  const { logOut } = useAuth();
+  const { logOut, admin } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -82,50 +82,70 @@ function Dashboard(props) {
         </Button>
       </Box>
       {/* admin panal */}
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/manageorder`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Manage Order
-          </Link>
-        </Button>
-      </Box>
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/productadd`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Add Product
-          </Link>
-        </Button>
-      </Box>
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/admin`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Make Admin
-          </Link>
-        </Button>
-      </Box>
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/manageproduct`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Manage Product
-          </Link>
-        </Button>
-      </Box>
+      {admin && (
+        <>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}/manageorder`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Manage Order
+              </Link>
+            </Button>
+          </Box>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}/productadd`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Add Product
+              </Link>
+            </Button>
+          </Box>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}/admin`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Make Admin
+              </Link>
+            </Button>
+          </Box>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}/manageproduct`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Manage Product
+              </Link>
+            </Button>
+          </Box>
+        </>
+      )}
       <Box sx={{ my: 2, textAlign: 'center' }}>
         <Button
           variant="contained"

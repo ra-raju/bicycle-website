@@ -32,7 +32,7 @@ const Service = (props) => {
               my: 2,
             }}
           >
-            <Rating name="read-only" value={rating} readOnly />
+            <Rating name="read-only" value={parseFloat(rating)} readOnly />
           </Box>
         </div>
         <div className="card-action">

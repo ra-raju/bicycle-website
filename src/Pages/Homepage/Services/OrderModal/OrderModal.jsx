@@ -29,6 +29,7 @@ export default function OrderModal({ open, handleClose, service }) {
       service_name: service.title,
       price: service.price,
       img: service.img,
+      status: 'Pending',
     };
     console.log(newData);
 

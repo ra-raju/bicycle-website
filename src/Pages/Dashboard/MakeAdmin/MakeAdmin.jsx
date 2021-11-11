@@ -1,10 +1,13 @@
 import { Box, Button, TextField } from '@mui/material';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import './MakeAdmin.css';
 
 const MakeAdmin = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
+  const [success, setSuccess] = React.useState(false);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -17,12 +20,24 @@ const MakeAdmin = () => {
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.modifiedCount === 1) {
+          setSuccess(true);
+        }
+        console.log(data);
+        reset();
+      })
       .catch((err) => console.log(err.message));
   };
   return (
     <div className="dashboard adminpage">
       <h1>Make an Admin</h1>
+
+      {success && (
+        <Stack sx={{ width: '300px', my: 2 }} spacing={2}>
+          <Alert severity="success">Set admin successfuly</Alert>
+        </Stack>
+      )}
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box sx={{ my: 2 }}>
