@@ -10,13 +10,20 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import MakeAdmin from '../MakeAdmin/MakeAdmin';
+import ManangeOrder from '../ManageOrder/ManangeOrder';
+import MyOrders from '../MyOrders/MyOrders';
+import Pay from '../Pay/Pay';
+import ProductAdd from '../ProductAdd/ProductAdd';
+import Review from '../Review/Review';
 
 const drawerWidth = 200;
 
 function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  let { path, url } = useRouteMatch();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -29,10 +36,80 @@ function Dashboard(props) {
       <Divider />
       {/*  add link here */}
       <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small" sx={{ width: '150px' }}>
-          <Link to="/" style={{ textDecoration: 'none' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
             {' '}
             Home
+          </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/pay`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Pay
+          </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/review`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Review
+          </Link>
+        </Button>
+      </Box>
+      {/* admin panal */}
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/manageorder`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Manage Order
+          </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/productadd`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Add Product
+          </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/admin`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Make Admin
+          </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
+            to={`${url}/manageproduct`}
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Manage Product
           </Link>
         </Button>
       </Box>
@@ -114,21 +191,35 @@ function Dashboard(props) {
         }}
       >
         <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
+        <Switch>
+          <Route exact path={path}>
+            <MyOrders />
+          </Route>
+          <Route path={`${path}/pay`}>
+            {' '}
+            <Pay />
+          </Route>
+          <Route path={`${path}/review`}>
+            {' '}
+            <Review />
+          </Route>
+          <Route path={`${path}/manageorder`}>
+            {' '}
+            <ManangeOrder />
+          </Route>
+          <Route path={`${path}/productadd`}>
+            {' '}
+            <ProductAdd />
+          </Route>
+          <Route path={`${path}/admin`}>
+            {' '}
+            <MakeAdmin />
+          </Route>
+          <Route path={`${path}/manageproduct`}>
+            {' '}
+            <Pay />
+          </Route>
+        </Switch>
       </Box>
     </Box>
   );
