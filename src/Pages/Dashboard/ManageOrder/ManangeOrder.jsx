@@ -1,9 +1,158 @@
-import React from 'react';
+import CloseIcon from '@mui/icons-material/Close';
+import { Button, IconButton, Snackbar } from '@mui/material';
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import React, { useEffect, useState } from 'react';
 
 const ManangeOrder = () => {
+  const [orders, setOrders] = useState([]);
+  const [success, setSuccess] = useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/allorders')
+      .then((res) => res.json())
+      .then((data) => setOrders(data))
+      .catch((error) => console.log(error.message));
+  }, [orders]);
+
+  const handleDeleteOrder = (id) => {
+    const process = window.confirm(
+      'Are you sure you want to delete this order?'
+    );
+    if (process) {
+      const uri = `http://localhost:8000/orders/${id}`;
+      console.log(uri);
+      fetch(uri, {
+        method: 'DELETE',
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.deletedCount) {
+            const remainingOrder = orders.filter((order) => order._id !== id);
+            setOrders(remainingOrder);
+          }
+        })
+        .catch((err) => console.log(err.meaaage));
+    }
+  };
+
+  const handleUpdateStatus = (id) => {
+    console.log(id);
+
+    fetch(`http://localhost:8000/order/update/${id}`, {
+      method: 'PUT',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ status: 'Approved' }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount === 1) {
+          setSuccess(true);
+          setOpen(true);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
   return (
     <div>
-      <h1>Manage order</h1>
+      <h1>Manage All Orders</h1>
+
+      {success && (
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          message="status update successfully"
+          action={action}
+        />
+      )}
+
+      <TableContainer component={Paper}>
+        <Table
+          sx={{ minWidth: 650, overflowX: 'scroll' }}
+          aria-label="simple table"
+        >
+          <TableHead>
+            <TableRow>
+              <TableCell>Email</TableCell>
+              <TableCell>Products</TableCell>
+              <TableCell align="right">Quantity</TableCell>
+              <TableCell align="right">Price</TableCell>
+              <TableCell align="right">Status</TableCell>
+              <TableCell align="right">Action</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {orders.map((row) => (
+              <TableRow
+                key={row._id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.email}
+                </TableCell>
+                <TableCell component="th" scope="row">
+                  {row.service_name}
+                </TableCell>
+                <TableCell align="right">{row.quantity}</TableCell>
+                <TableCell align="right">{row.price}</TableCell>
+                <TableCell align="right" sx={{ color: 'blue' }}>
+                  {row.status}
+                </TableCell>
+                <TableCell align="right">
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={() => handleDeleteOrder(row._id)}
+                  >
+                    Remove
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="small"
+                    sx={{ mx: 2 }}
+                    onClick={() => handleUpdateStatus(row._id)}
+                  >
+                    Update Status
+                  </Button>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 };

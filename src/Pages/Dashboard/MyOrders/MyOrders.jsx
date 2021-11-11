@@ -9,7 +9,7 @@ import TableRow from '@mui/material/TableRow';
 import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 
-const MyOrders = ({ success }) => {
+const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
 
