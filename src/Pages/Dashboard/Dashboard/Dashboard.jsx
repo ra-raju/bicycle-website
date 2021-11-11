@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManangeOrder from '../ManageOrder/ManangeOrder';
 import MyOrders from '../MyOrders/MyOrders';
@@ -24,6 +25,7 @@ function Dashboard(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
   let { path, url } = useRouteMatch();
+  const { logOut } = useAuth();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -38,11 +40,22 @@ function Dashboard(props) {
       <Box sx={{ my: 2, textAlign: 'center' }}>
         <Button variant="contained" size="small">
           <Link
+            to="/"
+            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+          >
+            {' '}
+            Home Page
+          </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button variant="contained" size="small">
+          <Link
             to={`${url}/`}
             style={{ textDecoration: 'none', color: 'white', width: '120px' }}
           >
             {' '}
-            Home
+            Dashboard
           </Link>
         </Button>
       </Box>
@@ -111,6 +124,16 @@ function Dashboard(props) {
             {' '}
             Manage Product
           </Link>
+        </Button>
+      </Box>
+      <Box sx={{ my: 2, textAlign: 'center' }}>
+        <Button
+          variant="contained"
+          size="small"
+          sx={{ width: '140px' }}
+          onClick={logOut}
+        >
+          Log Out
         </Button>
       </Box>
     </div>
