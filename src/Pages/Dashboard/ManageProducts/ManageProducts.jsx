@@ -7,25 +7,22 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import React, { useEffect, useState } from 'react';
-import useAuth from '../../../Hooks/useAuth';
 
-const MyOrders = () => {
-  const { user } = useAuth();
-  const [orders, setOrders] = useState([]);
+const ManageProducts = () => {
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/orders/${user.email}`)
+    fetch('http://localhost:8000/products')
       .then((res) => res.json())
-      .then((data) => setOrders(data))
-      .catch((err) => console.log(err));
+      .then((data) => setProducts(data));
   }, []);
 
-  const handleDeleteOrder = (id) => {
+  const handleDeleteProduct = (id) => {
     const process = window.confirm(
       'Are you sure you want to delete this order?'
     );
     if (process) {
-      const uri = `http://localhost:8000/orders/${id}`;
+      const uri = `http://localhost:8000/products/${id}`;
       console.log(uri);
       fetch(uri, {
         method: 'DELETE',
@@ -34,50 +31,51 @@ const MyOrders = () => {
         .then((data) => {
           console.log(data);
           if (data.deletedCount) {
-            const remainingOrder = orders.filter((order) => order._id !== id);
-            setOrders(remainingOrder);
+            const remainingProducts = products.filter(
+              (product) => product._id !== id
+            );
+            setProducts(remainingProducts);
           }
         })
         .catch((err) => console.log(err.meaaage));
     }
   };
-
   return (
     <div>
-      <h1>Manage Orders}</h1>
+      <h1>Manage Products</h1>
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Product Name</TableCell>
-              <TableCell align="right">Price</TableCell>
-              <TableCell align="right">Quantity</TableCell>
-              <TableCell align="right">Status</TableCell>
+              <TableCell>Image</TableCell>
+              <TableCell align="right">Title</TableCell>
               <TableCell align="right">Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {orders.map((row) => (
+            {products.map((row) => (
               <TableRow
                 key={row._id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
-                  {row.service_name}
+                  <img
+                    src={row.img}
+                    alt=""
+                    style={{ width: '200px', height: '150px' }}
+                  />
                 </TableCell>
-                <TableCell align="right">{row.price}</TableCell>
-                <TableCell align="right">{row.quantity}</TableCell>
-                <TableCell align="right" sx={{ color: 'blue' }}>
-                  {row.status}
-                </TableCell>
+                <TableCell align="right">{row.title}</TableCell>
                 <TableCell align="right">
+                  {' '}
                   <Button
                     variant="outlined"
                     size="small"
-                    onClick={() => handleDeleteOrder(row._id)}
+                    sx={{ mx: 2 }}
+                    onClick={() => handleDeleteProduct(row._id)}
                   >
-                    Remove
+                    Delete Product
                   </Button>
                 </TableCell>
               </TableRow>
@@ -89,4 +87,4 @@ const MyOrders = () => {
   );
 };
 
-export default MyOrders;
+export default ManageProducts;

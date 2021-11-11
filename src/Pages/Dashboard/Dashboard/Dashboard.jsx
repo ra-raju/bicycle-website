@@ -14,6 +14,7 @@ import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import ManangeOrder from '../ManageOrder/ManangeOrder';
+import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Pay from '../Pay/Pay';
 import ProductAdd from '../ProductAdd/ProductAdd';
@@ -37,57 +38,30 @@ function Dashboard(props) {
       <Divider />
       <Divider />
       {/*  add link here */}
+
       <Box sx={{ my: 2, textAlign: 'center' }}>
         <Button variant="contained" size="small">
           <Link
             to="/"
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
+            style={{
+              textDecoration: 'none',
+              color: 'white',
+              width: '120px',
+            }}
           >
             {' '}
             Home Page
           </Link>
         </Button>
       </Box>
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Dashboard
-          </Link>
-        </Button>
-      </Box>
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/pay`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Pay
-          </Link>
-        </Button>
-      </Box>
-      <Box sx={{ my: 2, textAlign: 'center' }}>
-        <Button variant="contained" size="small">
-          <Link
-            to={`${url}/review`}
-            style={{ textDecoration: 'none', color: 'white', width: '120px' }}
-          >
-            {' '}
-            Review
-          </Link>
-        </Button>
-      </Box>
-      {/* admin panal */}
-      {admin && (
+
+      {!admin && (
         <>
+          {' '}
           <Box sx={{ my: 2, textAlign: 'center' }}>
             <Button variant="contained" size="small">
               <Link
-                to={`${url}/manageorder`}
+                to={`${url}`}
                 style={{
                   textDecoration: 'none',
                   color: 'white',
@@ -95,7 +69,58 @@ function Dashboard(props) {
                 }}
               >
                 {' '}
-                Manage Order
+                Dashboard
+              </Link>
+            </Button>
+          </Box>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}/pay`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Pay
+              </Link>
+            </Button>
+          </Box>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}/review`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Review
+              </Link>
+            </Button>
+          </Box>{' '}
+        </>
+      )}
+
+      {/* admin panal */}
+      {admin && (
+        <>
+          <Box sx={{ my: 2, textAlign: 'center' }}>
+            <Button variant="contained" size="small">
+              <Link
+                to={`${url}`}
+                style={{
+                  textDecoration: 'none',
+                  color: 'white',
+                  width: '120px',
+                }}
+              >
+                {' '}
+                Dashboard
               </Link>
             </Button>
           </Box>
@@ -236,8 +261,9 @@ function Dashboard(props) {
         <Toolbar />
         <Switch>
           <Route exact path={path}>
-            <MyOrders />
+            {admin ? <ManangeOrder /> : <MyOrders />}
           </Route>
+
           <Route path={`${path}/pay`}>
             {' '}
             <Pay />
@@ -246,10 +272,7 @@ function Dashboard(props) {
             {' '}
             <Review />
           </Route>
-          <Route path={`${path}/manageorder`}>
-            {' '}
-            <ManangeOrder />
-          </Route>
+
           <Route path={`${path}/productadd`}>
             {' '}
             <ProductAdd />
@@ -260,7 +283,7 @@ function Dashboard(props) {
           </Route>
           <Route path={`${path}/manageproduct`}>
             {' '}
-            <Pay />
+            <ManageProducts />
           </Route>
         </Switch>
       </Box>
