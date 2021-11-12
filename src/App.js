@@ -6,6 +6,7 @@ import Homepage from './Pages/Homepage/Homepage/Homepage';
 import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
+import Notfound from './Pages/Notfound/Notfound';
 import AddProduct from './Pages/PostServer/AddProduct/AddProduct';
 import Products from './Pages/Products/Products/Products';
 
@@ -27,6 +28,7 @@ function App() {
 
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
+            <Route path="*" component={Notfound} />
           </Switch>
         </BrowserRouter>
       </AuthProvider>
