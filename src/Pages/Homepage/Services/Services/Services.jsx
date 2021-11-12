@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { CircularProgress, Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
@@ -6,18 +6,32 @@ import Service from '../Service/Service';
 
 const Services = () => {
   const [services, setServices] = useState([]);
+  const [success, setSuccess] = useState(true);
 
   useEffect(() => {
     fetch('https://morning-beach-20247.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => {
         setServices(data);
+        setSuccess(false);
       });
   }, []);
 
   return (
     <Container>
       <h1 className="section-heading">Our Products</h1>
+
+      {success && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
       <Box sx={{ flexGrow: 1, my: 3 }}>
         <Grid
           container

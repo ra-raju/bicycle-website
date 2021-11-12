@@ -1,5 +1,11 @@
 import CloseIcon from '@mui/icons-material/Close';
-import { Button, IconButton, Snackbar } from '@mui/material';
+import {
+  Box,
+  Button,
+  CircularProgress,
+  IconButton,
+  Snackbar,
+} from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -13,11 +19,15 @@ const ManangeOrder = () => {
   const [orders, setOrders] = useState([]);
   const [success, setSuccess] = useState(false);
   const [open, setOpen] = React.useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://morning-beach-20247.herokuapp.com/allorders')
       .then((res) => res.json())
-      .then((data) => setOrders(data))
+      .then((data) => {
+        setOrders(data);
+        setLoading(false);
+      })
       .catch((error) => console.log(error.message));
   }, [orders]);
 
@@ -115,6 +125,7 @@ const ManangeOrder = () => {
               </TableCell>
             </TableRow>
           </TableHead>
+
           <TableBody>
             {orders.map((row) => (
               <TableRow
@@ -155,6 +166,17 @@ const ManangeOrder = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      {loading && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
     </div>
   );
 };

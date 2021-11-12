@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+import { Box, Button, CircularProgress } from '@mui/material';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -12,11 +12,15 @@ import useAuth from '../../../Hooks/useAuth';
 const MyOrders = () => {
   const { user } = useAuth();
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`https://morning-beach-20247.herokuapp.com/orders/${user.email}`)
       .then((res) => res.json())
-      .then((data) => setOrders(data))
+      .then((data) => {
+        setOrders(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -64,6 +68,7 @@ const MyOrders = () => {
               </TableCell>
             </TableRow>
           </TableHead>
+
           <TableBody>
             {orders.map((row) => (
               <TableRow
@@ -92,6 +97,17 @@ const MyOrders = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      {loading && (
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <CircularProgress />
+        </Box>
+      )}
     </div>
   );
 };
