@@ -7,7 +7,7 @@ const Reviews = () => {
   const [success, setSuccess] = useState(true);
 
   useEffect(() => {
-    fetch('http://morning-beach-20247.herokuapp.com/reviews')
+    fetch('https://morning-beach-20247.herokuapp.com/reviews')
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);

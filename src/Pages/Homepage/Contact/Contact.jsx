@@ -9,7 +9,7 @@ const Contact = () => {
   const { register, handleSubmit, reset } = useForm();
   const [open, setOpen] = React.useState(false);
   const onSubmit = (data) => {
-    fetch('http://morning-beach-20247.herokuapp.com/message', {
+    fetch('https://morning-beach-20247.herokuapp.com/message', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
