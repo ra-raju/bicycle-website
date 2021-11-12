@@ -141,13 +141,14 @@ const ManangeOrder = () => {
                     variant="outlined"
                     size="small"
                     onClick={() => handleDeleteOrder(row._id)}
+                    sx={{ my: 1 }}
                   >
-                    Remove
+                    Remove order
                   </Button>
+                  <br />
                   <Button
                     variant="outlined"
                     size="small"
-                    sx={{ mx: 2 }}
                     onClick={() => handleUpdateStatus(row._id)}
                   >
                     Update Status

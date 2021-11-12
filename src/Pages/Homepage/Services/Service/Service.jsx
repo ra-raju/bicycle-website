@@ -20,7 +20,7 @@ const Service = (props) => {
         </div>
         <div className="card-content">
           <span className="card-title">{title}</span>
-          <p>{description.slice(0, 100)}</p>
+          <p>{description.slice(0, 90)}</p>
           <p className="card-price">
             <span>
               <i className="fas fa-dollar-sign dollar-icon"></i>
@@ -36,7 +36,7 @@ const Service = (props) => {
           </Box>
         </div>
         <div className="card-action">
-          <Button variant="contained" onClick={handleOpen}>
+          <Button variant="contained" type="submit" onClick={handleOpen}>
             Buy Now
           </Button>
         </div>

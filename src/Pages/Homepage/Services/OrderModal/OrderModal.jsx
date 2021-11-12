@@ -47,6 +47,7 @@ export default function OrderModal({ open, handleClose, service }) {
           handleClose();
           reset();
         }
+        window.alert('order submit success');
       })
       .catch((err) => console.log(err.message));
   };
@@ -77,6 +78,7 @@ export default function OrderModal({ open, handleClose, service }) {
                 variant="standard"
                 defaultValue={user.displayName}
                 {...register('user_name')}
+                required
               />
             </Box>
             <Box>
@@ -86,6 +88,7 @@ export default function OrderModal({ open, handleClose, service }) {
                 variant="standard"
                 defaultValue={user.email}
                 {...register('email')}
+                required
               />
             </Box>
             <Box>
@@ -105,6 +108,7 @@ export default function OrderModal({ open, handleClose, service }) {
                 label="Quantity"
                 variant="standard"
                 {...register('quantity')}
+                required
               />
             </Box>
             <Box>
