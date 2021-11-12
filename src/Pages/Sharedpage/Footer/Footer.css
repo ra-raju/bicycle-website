@@ -1,0 +1,32 @@
+.footer {
+  background-color: #ddd;
+  padding: 20px 10px;
+  text-align: center;
+}
+.address {
+  text-align: left;
+}
+
+.contact-us {
+  text-align: left;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: black;
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -ms-transition: all 0.5s;
+  -o-transition: all 0.5s;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-icon {
+  padding: 5px;
+  color: blue;
+  font-size: 20px;
+}

@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
 import Service from '../../Homepage/Services/Service/Service';
+import Footer from '../../Sharedpage/Footer/Footer';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
 
 const Products = () => {
@@ -39,6 +40,7 @@ const Products = () => {
           </Grid>
         </Box>
       </Container>
+      <Footer />
     </>
   );
 };

@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import login from '../../../images/login.jpg';
+import Footer from '../../Sharedpage/Footer/Footer';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
 import './Register.css';
 
@@ -117,6 +118,7 @@ const Register = () => {
           </Grid>
         </Grid>
       </section>
+      <Footer />
     </>
   );
 };

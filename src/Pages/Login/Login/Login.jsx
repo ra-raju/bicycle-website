@@ -11,6 +11,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import login from '../../../images/login.jpg';
+import Footer from '../../Sharedpage/Footer/Footer';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
 
 const Login = (props) => {
@@ -97,6 +98,7 @@ const Login = (props) => {
           </Grid>
         </Grid>
       </section>
+      <Footer />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../../Sharedpage/Footer/Footer';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
 import Contact from '../Contact/Contact';
 import Hero from '../Hero/Hero';
@@ -13,6 +14,7 @@ const Homepage = () => {
       <Services />
       <Reviews />
       <Contact />
+      <Footer />
     </div>
   );
 };
