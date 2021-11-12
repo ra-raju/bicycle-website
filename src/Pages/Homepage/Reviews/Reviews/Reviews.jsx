@@ -15,8 +15,8 @@ const Reviews = () => {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <div>
-      <h1>Reviews</h1>
+    <div style={{ backgroundColor: '#F0F0F0', padding: '20px 0' }}>
+      <h1 className="section-heading">Reviews</h1>
 
       <Grid
         container

@@ -43,7 +43,7 @@ const ManageProducts = () => {
 
   return (
     <div>
-      <h1>Manage Products</h1>
+      <h1 className="section-heading">Manage Products</h1>
 
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">

@@ -3,13 +3,18 @@
   min-height: 400px;
   margin: 0 auto;
   background-color: darkturquoise;
-
   transition: all 0.5s;
   -webkit-transition: all 0.5s;
   -moz-transition: all 0.5s;
   -ms-transition: all 0.5s;
   -o-transition: all 0.5s;
   text-align: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 10px;
 }
 
 .card:hover {
@@ -19,7 +24,7 @@
 .card-image {
   height: 200px;
   width: 300px;
-  object-fit: cover;
+  /* object-fit: cover; */
   border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
@@ -46,6 +51,12 @@
 .card-action {
   width: 300px;
   background-color: gray;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  padding: 0;
 }
 
 .card-action Button {

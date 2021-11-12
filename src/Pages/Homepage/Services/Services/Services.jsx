@@ -17,10 +17,7 @@ const Services = () => {
 
   return (
     <Container>
-      <Typography variant="h3" gutterBottom component="div">
-        {' '}
-        Our Products
-      </Typography>
+      <h1 className="section-heading">Our Products</h1>
       <Box sx={{ flexGrow: 1, my: 3 }}>
         <Grid
           container

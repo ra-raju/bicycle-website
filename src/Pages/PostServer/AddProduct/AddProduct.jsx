@@ -34,7 +34,7 @@ const AddProduct = () => {
   };
   return (
     <div className="dashboard">
-      <h1>Add Product</h1>
+      <h1 className="section-heading">Add Product</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box>

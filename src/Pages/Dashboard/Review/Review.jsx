@@ -41,7 +41,7 @@ const Review = () => {
   };
   return (
     <div className="dashboard">
-      <h1>Add Your Review</h1>
+      <h1 className="section-heading">Add Your Review</h1>
 
       <form onSubmit={handleSubmit(onSubmit)}>
         <Box>

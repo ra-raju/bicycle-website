@@ -31,7 +31,7 @@ const MakeAdmin = () => {
   };
   return (
     <div className="dashboard adminpage">
-      <h1>Make an Admin</h1>
+      <h1 className="section-heading">Make an Admin</h1>
 
       {success && (
         <Stack sx={{ width: '300px', my: 2 }} spacing={2}>

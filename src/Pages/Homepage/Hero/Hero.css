@@ -5,6 +5,10 @@
   margin-top: 20px;
 }
 
+.hero-heading {
+  font-family: 'Lobster', cursive;
+}
+
 .hero-img {
   width: 100%;
 }

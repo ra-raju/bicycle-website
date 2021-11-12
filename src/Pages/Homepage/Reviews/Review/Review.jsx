@@ -14,7 +14,8 @@ const Review = (props) => {
         '& > :not(style)': {
           m: 1,
           width: 300,
-          minHeight: 400,
+          height: 400,
+          overflow: 'hidden',
         },
       }}
     >
@@ -36,10 +37,14 @@ const Review = (props) => {
         </Box>
         <Box sx={{ p: 2 }}>
           <Typography
-            variant="subtitle2"
+            variant="p"
             gutterBottom
             component="div"
-            sx={{ textAlign: 'justify' }}
+            sx={{
+              textAlign: 'justify',
+              fontFamily: 'Courgette',
+              lineHeight: '24px',
+            }}
           >
             {review}
           </Typography>

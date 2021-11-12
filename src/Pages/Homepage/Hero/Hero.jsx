@@ -10,7 +10,7 @@ const Hero = () => {
       <Grid container spacing={2}>
         <Grid item sm={12} md={6}>
           <div className="hero-content">
-            <h1>
+            <h1 className="hero-heading">
               Ride Your Bike <br /> to Havean with Us
             </h1>
             <p className="hero-para">

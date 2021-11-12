@@ -1,4 +1,4 @@
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
@@ -21,11 +21,9 @@ const Products = () => {
   return (
     <>
       <Navigation />
-      <Container>
-        <Typography variant="h3" gutterBottom component="div">
-          {' '}
-          Our Products
-        </Typography>
+
+      <Container sx={{ padding: '20px 0' }}>
+        <h1 className="section-heading">Our Products</h1>
         <Box sx={{ flexGrow: 1, my: 3 }}>
           <Grid
             container

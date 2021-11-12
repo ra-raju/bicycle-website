@@ -56,7 +56,7 @@ const Contact = () => {
         minHeight: '100vh',
       }}
     >
-      <h1>Contact us</h1>
+      <h1 className="section-heading">Contact us</h1>
       <Grid container spacing={2}>
         <Grid item sm={12} md={6} sx={{ mx: 'auto' }}>
           <form onSubmit={handleSubmit(onSubmit)}>
