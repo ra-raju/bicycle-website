@@ -1,0 +1,72 @@
+[debug] [2021-11-12T17:56:41.466Z] ----------------------------------------------------------------------
+[debug] [2021-11-12T17:56:41.473Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-11-12T17:56:41.474Z] CLI Version:   9.22.0
+[debug] [2021-11-12T17:56:41.474Z] Platform:      win32
+[debug] [2021-11-12T17:56:41.474Z] Node Version:  v14.17.0
+[debug] [2021-11-12T17:56:41.478Z] Time:          Fri Nov 12 2021 23:56:41 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-11-12T17:56:41.479Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-12T17:56:41.683Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-12T17:56:41.683Z] > authorizing via signed-in user (robeyoulawal@gmail.com)
+[debug] [2021-11-12T17:56:41.683Z] [iam] checking project runner-bicycle for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-11-12T17:56:41.687Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/runner-bicycle:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-11-12T17:56:53.420Z] [iam] error while checking permissions, command may fail: FirebaseError: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com
+[debug] [2021-11-12T17:56:53.426Z] > refreshing access token with scopes: []
+[debug] [2021-11-12T17:56:53.427Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-12T17:57:05.138Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-11-12T17:57:06.781Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:141:12)
+    at refreshTokens (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:448:15)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async Client.getAccessToken (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:146:23)
+    at async Client.addAuthHeader (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:137:21)
+    at async Client.request (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:34)
+    at async Object.getFirebaseProject (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:290:21)
+    at async Object.getDefaultHostingSite (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:73:9)
+    at async C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:188:17
+[error] 
+[error] Error: Failed to get Firebase project runner-bicycle. Please make sure the project exists and your account has permission to access it.
+[debug] [2021-11-12T17:57:43.742Z] ----------------------------------------------------------------------
+[debug] [2021-11-12T17:57:43.747Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2021-11-12T17:57:43.747Z] CLI Version:   9.22.0
+[debug] [2021-11-12T17:57:43.747Z] Platform:      win32
+[debug] [2021-11-12T17:57:43.748Z] Node Version:  v14.17.0
+[debug] [2021-11-12T17:57:43.749Z] Time:          Fri Nov 12 2021 23:57:43 GMT+0600 (Bangladesh Standard Time)
+[debug] [2021-11-12T17:57:43.749Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-11-12T17:57:43.851Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-11-12T17:57:43.851Z] > authorizing via signed-in user (robeyoulawal@gmail.com)
+[debug] [2021-11-12T17:57:43.851Z] [iam] checking project runner-bicycle for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-11-12T17:57:43.855Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/runner-bicycle:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-11-12T17:57:55.623Z] [iam] error while checking permissions, command may fail: FirebaseError: Server Error. getaddrinfo ENOTFOUND cloudresourcemanager.googleapis.com
+[debug] [2021-11-12T17:57:55.634Z] > refreshing access token with scopes: []
+[debug] [2021-11-12T17:57:55.635Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-11-12T17:57:55.647Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2021-11-12T17:57:55.657Z] FirebaseError: Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+    at invalidCredentialError (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:141:12)
+    at refreshTokens (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\auth.js:448:15)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5)
+    at async Client.getAccessToken (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:146:23)
+    at async Client.addAuthHeader (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:137:21)
+    at async Client.request (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\apiv2.js:93:34)
+    at async Object.getFirebaseProject (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:290:21)
+    at async Object.getDefaultHostingSite (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\getDefaultHostingSite.js:8:21)
+    at async requireHostingSite (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\requireHostingSite.js:9:18)
+    at async Object.fn (C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\deploy.js:73:9)
+    at async C:\Users\dell\AppData\Roaming\npm\node_modules\firebase-tools\lib\command.js:188:17
+[error] 
+[error] Error: Failed to get Firebase project runner-bicycle. Please make sure the project exists and your account has permission to access it.
