@@ -10,8 +10,6 @@ const MakeAdmin = () => {
   const [success, setSuccess] = React.useState(false);
 
   const onSubmit = (data) => {
-    console.log(data);
-
     fetch('https://morning-beach-20247.herokuapp.com/user/admin', {
       method: 'PUT',
       headers: {
@@ -24,7 +22,7 @@ const MakeAdmin = () => {
         if (data.modifiedCount === 1) {
           setSuccess(true);
         }
-        console.log(data);
+
         reset();
       })
       .catch((err) => console.log(err.message));

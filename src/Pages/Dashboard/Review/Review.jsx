@@ -1,3 +1,4 @@
+import CloseIcon from '@mui/icons-material/Close';
 import {
   Box,
   Button,
@@ -7,20 +8,20 @@ import {
   Select,
   TextField,
 } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Snackbar from '@mui/material/Snackbar';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../Hooks/useAuth';
 
 const Review = () => {
   const [rating, setRating] = useState('');
+  const [open, setOpen] = React.useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth();
 
-  console.log(user);
-
   const onSubmit = (data) => {
     const review = { ...data, rating, email: user.email, img: user.photoURL };
-    console.log(review);
 
     fetch('https://morning-beach-20247.herokuapp.com/review', {
       method: 'POST',
@@ -30,15 +31,41 @@ const Review = () => {
       body: JSON.stringify(review),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        if (data.insertedId) {
+          setOpen(true);
+          reset();
+          setRating('');
+        }
+      })
       .catch((err) => console.log(err.message));
-    reset();
-    setRating('');
   };
 
   const handleChange = (event) => {
     setRating(event.target.value);
   };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+
+  const action = (
+    <React.Fragment>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <CloseIcon fontSize="small" />
+      </IconButton>
+    </React.Fragment>
+  );
+
   return (
     <div className="dashboard">
       <h1 className="section-heading">Add Your Review</h1>
@@ -71,6 +98,7 @@ const Review = () => {
               <MenuItem value="">
                 <em>None</em>
               </MenuItem>
+              <MenuItem value={0}>0</MenuItem>
               <MenuItem value={1}>1</MenuItem>
               <MenuItem value={2}>2</MenuItem>
               <MenuItem value={3}>3</MenuItem>
@@ -97,6 +125,15 @@ const Review = () => {
           </Button>
         </Box>
       </form>
+      {open && (
+        <Snackbar
+          open={open}
+          autoHideDuration={6000}
+          onClose={handleClose}
+          message="Rating added successfully"
+          action={action}
+        />
+      )}
     </div>
   );
 };

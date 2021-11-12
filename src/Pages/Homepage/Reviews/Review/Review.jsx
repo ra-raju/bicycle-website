@@ -2,7 +2,6 @@ import { Avatar, Box, Paper, Rating, Typography } from '@mui/material';
 import React from 'react';
 
 const Review = (props) => {
-  console.log(props);
   const { name, review, rating, img } = props.review;
   return (
     <Box

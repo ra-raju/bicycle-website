@@ -27,13 +27,12 @@ const ManangeOrder = () => {
     );
     if (process) {
       const uri = `https://morning-beach-20247.herokuapp.com/orders/${id}`;
-      console.log(uri);
+
       fetch(uri, {
         method: 'DELETE',
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount) {
             const remainingOrder = orders.filter((order) => order._id !== id);
             setOrders(remainingOrder);
@@ -44,8 +43,6 @@ const ManangeOrder = () => {
   };
 
   const handleUpdateStatus = (id) => {
-    console.log(id);
-
     fetch(`https://morning-beach-20247.herokuapp.com/order/update/${id}`, {
       method: 'PUT',
       headers: {
@@ -55,7 +52,6 @@ const ManangeOrder = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data.modifiedCount === 1) {
           setSuccess(true);
           setOpen(true);

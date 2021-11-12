@@ -14,14 +14,12 @@ import login from '../../../images/login.jpg';
 import Footer from '../../Sharedpage/Footer/Footer';
 import Navigation from '../../Sharedpage/Navigation/Navigation';
 
-const Login = (props) => {
-  console.log(props);
-  const { signInWithPassword, loading, signInWithGoogle } = useAuth();
+const Login = () => {
+  const { signInWithPassword, loading, signInWithGoogle, error } = useAuth();
   const history = useHistory();
   const location = useLocation();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     signInWithPassword(data.email, data.password, location, history);
   };
   return (
@@ -67,6 +65,7 @@ const Login = (props) => {
                   <CircularProgress />
                 </Box>
               )}
+              {error && <p>{error}</p>}
             </form>
             <Box>
               <Typography>

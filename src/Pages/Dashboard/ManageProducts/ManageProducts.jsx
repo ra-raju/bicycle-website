@@ -23,13 +23,12 @@ const ManageProducts = () => {
     );
     if (process) {
       const uri = `https://morning-beach-20247.herokuapp.com/products/${id}`;
-      console.log(uri);
+
       fetch(uri, {
         method: 'DELETE',
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount) {
             const remainingProducts = products.filter(
               (product) => product._id !== id

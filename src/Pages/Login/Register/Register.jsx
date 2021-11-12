@@ -21,7 +21,7 @@ const Register = () => {
   const [checkPass, setCheckPass] = useState(false);
   const history = useHistory();
 
-  const { signUpWithPassword, loading } = useAuth();
+  const { signUpWithPassword, loading, error } = useAuth();
   const onSubmit = (data) => {
     const { name, email, password, re_password } = data;
     if (password === re_password) {
@@ -101,6 +101,8 @@ const Register = () => {
                   <CircularProgress />
                 </Box>
               )}
+
+              {error && <p>{error}</p>}
             </form>
             <Box>
               <Typography>

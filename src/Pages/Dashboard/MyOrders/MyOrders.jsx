@@ -26,13 +26,12 @@ const MyOrders = () => {
     );
     if (process) {
       const uri = `https://morning-beach-20247.herokuapp.com/orders/${id}`;
-      console.log(uri);
+
       fetch(uri, {
         method: 'DELETE',
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.deletedCount) {
             const remainingOrder = orders.filter((order) => order._id !== id);
             setOrders(remainingOrder);

@@ -35,7 +35,7 @@ const useFirebase = () => {
         setUser(newUser);
         saveUserToDB(res.user.email, name, 'POST');
         history.push('/');
-        console.log(newUser);
+        setError('');
       })
       .catch((error) => {
         setError(error.message);
@@ -49,6 +49,7 @@ const useFirebase = () => {
     })
       .then(() => {
         // Profile updated!
+        setError('');
         // ...
       })
       .catch((error) => {
@@ -107,6 +108,7 @@ const useFirebase = () => {
       .then(() => {
         // Sign-out successful.
         setUser({});
+        setError('');
       })
       .catch((error) => {
         // An error happened.
