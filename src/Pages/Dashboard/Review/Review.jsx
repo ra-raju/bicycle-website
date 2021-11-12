@@ -93,7 +93,7 @@ const Review = () => {
         </Box>
         <Box>
           <Button variant="contained" type="submit">
-            Contained
+            Send
           </Button>
         </Box>
       </form>
