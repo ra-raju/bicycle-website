@@ -138,7 +138,6 @@ const useFirebase = () => {
   // save user in database
   const saveUserToDB = (email, displayName, method) => {
     const user = { email, displayName };
-    console.log(user);
 
     fetch('https://morning-beach-20247.herokuapp.com/user', {
       method: method,
