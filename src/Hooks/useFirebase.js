@@ -93,7 +93,7 @@ const useFirebase = () => {
 
   // admin
   useEffect(() => {
-    fetch(`http://localhost:8000/user/${user.email}`)
+    fetch(`https://morning-beach-20247.herokuapp.com/user/${user.email}`)
       .then((res) => res.json())
       .then((data) => {
         setAdmin(data.Admin);
@@ -138,7 +138,7 @@ const useFirebase = () => {
     const user = { email, displayName };
     console.log(user);
 
-    fetch('http://localhost:8000/user', {
+    fetch('https://morning-beach-20247.herokuapp.com/user', {
       method: method,
       headers: {
         'Content-Type': 'application/json',

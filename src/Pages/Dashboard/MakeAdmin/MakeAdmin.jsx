@@ -12,7 +12,7 @@ const MakeAdmin = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    fetch('http://localhost:8000/user/admin', {
+    fetch('https://morning-beach-20247.herokuapp.com/user/admin', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

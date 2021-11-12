@@ -15,7 +15,7 @@ const ManangeOrder = () => {
   const [open, setOpen] = React.useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:8000/allorders')
+    fetch('https://morning-beach-20247.herokuapp.com/allorders')
       .then((res) => res.json())
       .then((data) => setOrders(data))
       .catch((error) => console.log(error.message));
@@ -26,7 +26,7 @@ const ManangeOrder = () => {
       'Are you sure you want to delete this order?'
     );
     if (process) {
-      const uri = `http://localhost:8000/orders/${id}`;
+      const uri = `https://morning-beach-20247.herokuapp.com/orders/${id}`;
       console.log(uri);
       fetch(uri, {
         method: 'DELETE',
@@ -46,7 +46,7 @@ const ManangeOrder = () => {
   const handleUpdateStatus = (id) => {
     console.log(id);
 
-    fetch(`http://localhost:8000/order/update/${id}`, {
+    fetch(`https://morning-beach-20247.herokuapp.com/order/update/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

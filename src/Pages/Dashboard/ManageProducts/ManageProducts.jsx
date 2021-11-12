@@ -12,7 +12,7 @@ const ManageProducts = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/products')
+    fetch('https://morning-beach-20247.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -22,7 +22,7 @@ const ManageProducts = () => {
       'Are you sure you want to delete this order?'
     );
     if (process) {
-      const uri = `http://localhost:8000/products/${id}`;
+      const uri = `https://morning-beach-20247.herokuapp.com/products/${id}`;
       console.log(uri);
       fetch(uri, {
         method: 'DELETE',

@@ -22,7 +22,7 @@ const Review = () => {
     const review = { ...data, rating, email: user.email, img: user.photoURL };
     console.log(review);
 
-    fetch('http://localhost:8000/review', {
+    fetch('https://morning-beach-20247.herokuapp.com/review', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

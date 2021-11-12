@@ -14,7 +14,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8000/orders/${user.email}`)
+    fetch(`https://morning-beach-20247.herokuapp.com/orders/${user.email}`)
       .then((res) => res.json())
       .then((data) => setOrders(data))
       .catch((err) => console.log(err));
@@ -25,7 +25,7 @@ const MyOrders = () => {
       'Are you sure you want to delete this order?'
     );
     if (process) {
-      const uri = `http://localhost:8000/orders/${id}`;
+      const uri = `https://morning-beach-20247.herokuapp.com/orders/${id}`;
       console.log(uri);
       fetch(uri, {
         method: 'DELETE',

@@ -33,7 +33,7 @@ export default function OrderModal({ open, handleClose, service }) {
     };
     console.log(newData);
 
-    fetch('http://localhost:8000/orders', {
+    fetch('https://morning-beach-20247.herokuapp.com/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

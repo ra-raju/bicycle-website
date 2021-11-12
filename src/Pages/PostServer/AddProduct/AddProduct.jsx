@@ -14,7 +14,7 @@ const AddProduct = () => {
   const onSubmit = (data) => {
     console.log(data);
 
-    fetch('http://localhost:8000/products', {
+    fetch('https://morning-beach-20247.herokuapp.com/products', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
