@@ -1,0 +1,21 @@
+.hero-section {
+  width: 100%;
+  height: auto;
+  background-color: #f0f0f0;
+}
+
+.hero-img {
+  width: 100%;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  text-align: center;
+}
+
+.hero-para {
+  width: 70%;
+}
