@@ -1,4 +1,4 @@
-import { Container } from '@mui/material';
+import { CircularProgress, Container } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import React, { useEffect, useState } from 'react';
@@ -8,12 +8,14 @@ import Navigation from '../../Sharedpage/Navigation/Navigation';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [success, setSuccess] = useState(true);
 
   useEffect(() => {
     fetch('https://morning-beach-20247.herokuapp.com/products')
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
+        setSuccess(false);
       });
   }, []);
 
@@ -23,6 +25,18 @@ const Products = () => {
 
       <Container sx={{ padding: '20px 0' }}>
         <h1 className="section-heading">Our Products</h1>
+        {success && (
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: '100vh',
+            }}
+          >
+            <CircularProgress />
+          </Box>
+        )}
         <Box sx={{ flexGrow: 1, my: 3 }}>
           <Grid
             container

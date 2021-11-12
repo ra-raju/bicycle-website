@@ -24,6 +24,7 @@ const Reviews = () => {
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            my: 2,
           }}
         >
           <CircularProgress />
