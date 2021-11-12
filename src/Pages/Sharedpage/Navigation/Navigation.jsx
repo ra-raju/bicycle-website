@@ -1,4 +1,5 @@
 import MenuIcon from '@mui/icons-material/Menu';
+import { Avatar } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -8,12 +9,13 @@ import Typography from '@mui/material/Typography';
 import * as React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
+import './Navigation.css';
 
 export default function Navigation() {
   const { user, logOut } = useAuth();
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" className="appbar">
         <Toolbar>
           <IconButton
             size="large"
@@ -30,13 +32,23 @@ export default function Navigation() {
             </Link>
           </Typography>
 
-          <Box sx={{ mx: 5 }}>
+          <Box sx={{ mx: 3 }}>
+            <NavLink
+              to="/"
+              style={{
+                textDecoration: 'none',
+                color: 'white',
+              }}
+            >
+              Home
+            </NavLink>
+          </Box>
+          <Box sx={{ mx: 3 }}>
             <NavLink
               to="/products"
               style={{
                 textDecoration: 'none',
                 color: 'white',
-                marginRight: '5px',
               }}
             >
               Products
@@ -44,22 +56,28 @@ export default function Navigation() {
           </Box>
 
           {user.email ? (
-            <Box>
-              <NavLink
-                to="/dashboard"
-                style={{
-                  textDecoration: 'none',
-                  color: 'white',
-                  marginRight: '20px',
-                }}
-              >
-                Dashboard
-              </NavLink>
-              <span>{user.displayName}</span>
-              <Button color="inherit" onClick={logOut} sx={{ mr: 3 }}>
+            <>
+              <Box>
+                <NavLink
+                  to="/dashboard"
+                  style={{
+                    textDecoration: 'none',
+                    color: 'white',
+                    marginRight: '20px',
+                  }}
+                >
+                  Dashboard
+                </NavLink>
+              </Box>
+
+              <Box sx={{ mr: 2 }}>
+                <span>{user.displayName}</span>
+              </Box>
+              <Avatar alt="Remy Sharp" src={user.photoURL} />
+              <Button color="inherit" onClick={logOut} sx={{ mx: 2 }}>
                 Logout
               </Button>
-            </Box>
+            </>
           ) : (
             <Button color="inherit" sx={{ mr: 2 }}>
               <Link
@@ -67,7 +85,6 @@ export default function Navigation() {
                 style={{
                   textDecoration: 'none',
                   color: 'white',
-                  marginRight: '5px',
                 }}
               >
                 Login
